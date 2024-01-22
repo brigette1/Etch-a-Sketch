@@ -10,17 +10,17 @@
     grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
     border-style: solid;
     border-width: 10px;
-    border-color: rgb(239, 88, 113);
+    border-color: #f4acb7;
 }
 
 .boxes {
     border-style: solid;
-    border-color: rgb(214, 214, 214);
+    border-color: #696d7d;
     border-width: .5px;
 }
 
 .permaHover {
-    background-color: black;
+    background-color: #696d7d;
 }
 
 .controls { 
@@ -30,3 +30,19 @@
     margin: 30px;
 }
 
+button {
+    background-color: #fff4e4;
+    border-style: solid; 
+    border-radius: 30px;
+    border-color: #daf2ec;
+    border-width: 4px;
+    text-align: center;
+    font-size: 18px;
+    margin: 20px;
+    padding: 15px;
+    color: #4a516b;
+}
+
+button:hover {
+    background-color: #daf2ec;
+}
