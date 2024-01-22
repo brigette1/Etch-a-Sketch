@@ -19,7 +19,14 @@
     border-width: .5px;
 }
 
-.permahover {
+.permaHover {
     background-color: black;
+}
+
+.controls { 
+    display: flex; 
+    justify-content: center;
+    align-content: center;
+    margin: 30px;
 }
 
