@@ -8,13 +8,15 @@ function createBoxes() {
     }
 }
 
-//function createRow() {
-//    for (r = 0; r < 16; r++) {
-//        let row = document.createElement('div');
-  //      row.classList.add('row'); 
-    //    let column = document.querySelectorAll('.column'); 
-      //  column[i].appendChild(row);
- //   }
-//}
-
 createBoxes()
+
+//add event listeners 
+
+const boxes = document.querySelectorAll('.boxes'); 
+
+document.addEventListener('mouseover', function(event) {
+    if (event.target.className == 'boxes') {
+          let target = event.target;
+          target.classList.add('permahover');
+    }
+  });
