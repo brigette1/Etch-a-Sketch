@@ -11,15 +11,23 @@ function createBoxes() {
 createBoxes();
 
 //add event listeners for hover effect
-
 const boxes = document.querySelectorAll('.boxes'); 
 
-document.addEventListener('mouseover', function(event) {
+//function to add color to boxes 
+function colorBoxes(event) {
     if (event.target.className == 'boxes') {
-        let target = event.target;
+        let target = event.target; 
         target.classList.add('permaHover');
     }
-  });
+}
+
+document.addEventListener('mousedown', event => {
+    document.addEventListener('mouseover', colorBoxes);
+})
+
+document.addEventListener('mouseup', event => {
+    document.removeEventListener('mouseover', colorBoxes);
+})
 
 //reset board function 
 const resetBtn = document.querySelector('.reset'); 
@@ -29,5 +37,6 @@ resetBtn.addEventListener('click', event => {
         box.classList.remove('permaHover');
     })
 })
+
 
  
