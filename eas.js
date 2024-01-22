@@ -1,6 +1,6 @@
 //functions to create the divs
 function createBoxes() {
-    for (i = 0; i < 256; i++) {
+    for (i = 0; i < 400; i++) {
         let newDiv = document.createElement('div');
         newDiv.classList.add('boxes');
         let div = document.getElementById('grid-container');
