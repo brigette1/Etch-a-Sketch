@@ -30,7 +30,14 @@ function colorBoxes(event) {
     }
 }
 
+//Colors applied when user drags mouse 
+document.addEventListener('mousedown', event => {
+    document.addEventListener('mouseover', colorBoxes);
+})
 
+document.addEventListener('mouseup', event => {
+    document.removeEventListener('mouseover', colorBoxes);
+})
 
 //reset board button
 const resetBtn = document.querySelector('.reset'); 
