@@ -5,8 +5,8 @@
 #grid-container {
     display: grid;
     justify-items: stretch;
-    height: 450px;
-    width: 450px;
+    height: 400px;
+    width: 400px;
     grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
     border-style: solid;
     border-width: 10px;
@@ -35,15 +35,14 @@ button {
     background-color: #fff4e4;
     border-style: solid; 
     border-radius: 30px;
-    border-color: #bceede;
+    border-color: #bbf1e3;
     border-width: 4px;
     text-align: center;
-    margin: 20px;
-    padding: 15px;
+    margin: 15px;
+    padding: 5px;
     color: #4a516b;
     font-size: 18px;
     font-family: Didot, serif;
-    font-weight: bold;
 }
 
 button:hover {
@@ -52,4 +51,28 @@ button:hover {
 
 html {
     background-color: #ffeef1;
+}
+
+.title, 
+.gridprompt {
+    display: flex;
+    justify-content: center;
+    color: #4a516b;
+    font-size: 25px;
+    font-family: Didot, serif;
+    margin: 15px;
+}
+
+.title {
+    font-weight: 900;
+    text-shadow: 1px 1px 2px  rgb(130, 205, 194);
+}
+
+.gridprompt {
+    font-size: 18px;
+}
+
+.gridnum {
+    display: flex;
+    justify-content: center;
 }
