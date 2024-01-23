@@ -1,18 +1,26 @@
 //functions to create the divs
+const boxes = document.querySelectorAll('.boxes'); 
+const gridContainer = document.getElementById('grid-container');
+const gridBtn = document.querySelectorAll('.gridnum'); 
 
-function createBoxes() {
-    for (let i = 0; i < 400; i++) {
+gridBtn.forEach(button => button.addEventListener('click', event => {
+    const size = parseInt(button.textContent);
+    createBoxes(size);
+}))
+
+function createBoxes(size) {
+    const previousGrid = gridContainer.querySelectorAll('.boxes');
+    previousGrid.forEach((element) => {
+        element.remove();
+    });
+
+    for (let i = 0; i < size; i++) {
         let newDiv = document.createElement('div');
         newDiv.classList.add('boxes');
-        let div = document.getElementById('grid-container');
-        div.appendChild(newDiv); 
+        gridContainer.appendChild(newDiv); 
     }
 }
 
-createBoxes()
-
-//add event listeners for hover effect
-const boxes = document.querySelectorAll('.boxes'); 
 
 //function to add color to boxes 
 function colorBoxes(event) {
@@ -22,14 +30,7 @@ function colorBoxes(event) {
     }
 }
 
-//Colors applied when user drags mouse 
-document.addEventListener('mousedown', event => {
-    document.addEventListener('mouseover', colorBoxes);
-})
 
-document.addEventListener('mouseup', event => {
-    document.removeEventListener('mouseover', colorBoxes);
-})
 
 //reset board button
 const resetBtn = document.querySelector('.reset'); 

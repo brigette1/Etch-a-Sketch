@@ -72,7 +72,7 @@ html {
     font-size: 18px;
 }
 
-.gridnum {
+.gridnumdiv {
     display: flex;
     justify-content: center;
 }
