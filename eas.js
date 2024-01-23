@@ -43,6 +43,7 @@ document.addEventListener('mouseup', event => {
 const resetBtn = document.querySelector('.reset'); 
 
 resetBtn.addEventListener('click', event => {
+    const boxes = document.querySelectorAll('.boxes'); 
     boxes.forEach(box => {
         box.classList.remove('permaHover');
     })
