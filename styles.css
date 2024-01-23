@@ -31,6 +31,11 @@
     grid-template: repeat(40, 1fr) / repeat(40, 1fr);
 }
 
+.twentyfive {
+    display: grid;
+    grid-template: repeat(50, 1fr) / repeat(50, 1fr);
+}
+
 .boxes {
     border-style: solid;
     border-color: #696d7d;

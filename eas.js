@@ -27,7 +27,9 @@ function createBoxes(size) {
             gridContainer.classList.remove('nine'); 
         } else if (gridContainer.classList.contains('sixteen')) {
             gridContainer.classList.remove('sixteen');
-        } 
+        } else if (gridContainer.classList.contains('twentyfive')) {
+            gridContainer.classList.remove('twentyfive');
+        }
 
         if (size == 100) {
             gridContainer.classList.add('one'); 
@@ -36,7 +38,9 @@ function createBoxes(size) {
         } else if (size == 900) {
             gridContainer.classList.add('nine'); 
         } else if (size == 1600) {
-            gridContainer.classList.add('sixteen')
+            gridContainer.classList.add('sixteen');
+        } else if (size == 2500) {
+            gridContainer.classList.add('twentyfive');
         }
 
         gridContainer.appendChild(newDiv); 
@@ -53,6 +57,42 @@ function colorBoxes(event) {
         target.classList.add('permaHover');
     }
 }
+
+//function for rainbow pen 
+function rainbow(event) {
+    let color = '#';
+    let letters = ['ABDEE6','CBAACB','FFFFB5','FFCCB6','F3B0C3', 
+    'C6DBDA','FEE1E8','FED7C3','F6EAC2','ECD5E3',
+    'FF968A','FFAEA5','FFC5BF','FFD8BE','FFC8A2',
+    'D4F0F0','8FCACA','CCE2CB','B6CFB6','97C1A9',
+    'FCB9AA','FFDBCC','A2E1DB','55CBCD'];
+    color += letters[Math.floor(Math.random() * letters.length)];
+    
+    if (event.target.classList.contains('boxes')) {
+        let target = event.target; 
+        target.classList.remove('permaHover');
+        target.classList.add('rainbowHover');
+      //  target.style.background = color;
+    }
+}
+
+//eraser button & function
+
+function erase(event) {
+    if (event.target.classList.contains('boxes')) {
+        let target = event.target; 
+        target.classList.remove('permaHover');
+    }
+}
+
+const eraser = document.querySelector('.erase'); 
+eraser.addEventListener('click', event => {
+    document.addEventListener('mousedown', event => {
+        document.addEventListener('mouseover', erase)});
+    document.addEventListener('mouseup', event => {
+        document.removeEventListener('mouseover', erase);
+    })
+})
 
 //Colors applied when user drags mouse 
 document.addEventListener('mousedown', event => {
