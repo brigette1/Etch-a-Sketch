@@ -3,15 +3,32 @@
     justify-content: center;
 }
 #grid-container {
-    display: grid;
-    justify-items: stretch;
     height: 400px;
     width: 400px;
-    grid-template-columns: repeat(auto-fill, minmax(20px, 1fr));
     border-style: solid;
     border-width: 10px;
     border-color: #f4acb7;
     background-color: white;
+}
+
+.one {
+    display: grid;
+    grid-template: repeat(10, 1fr) / repeat(10, 1fr);
+}
+
+.four {
+    display: grid;
+    grid-template: repeat(20, 1fr) / repeat(20, 1fr);
+}
+
+.nine {
+    display: grid;
+    grid-template: repeat(30, 1fr) / repeat(30, 1fr);
+}
+
+.sixteen {
+    display: grid;
+    grid-template: repeat(40, 1fr) / repeat(40, 1fr);
 }
 
 .boxes {
@@ -71,6 +88,7 @@ html {
 .gridprompt {
     margin-top: 30px;;
     font-size: 15px;
+    font-weight: bold;
 }
 
 .gridnumdiv {

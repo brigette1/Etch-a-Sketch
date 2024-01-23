@@ -14,17 +14,41 @@ function createBoxes(size) {
         element.remove();
     });
 
+
     for (let i = 0; i < size; i++) {
         let newDiv = document.createElement('div');
         newDiv.classList.add('boxes');
+
+        if (gridContainer.classList.contains('one')) {
+            gridContainer.classList.remove('one');
+        } else if (gridContainer.classList.contains('four')) {
+            gridContainer.classList.remove('four');
+        } else if (gridContainer.classList.contains('nine')) {
+            gridContainer.classList.remove('nine'); 
+        } else if (gridContainer.classList.contains('sixteen')) {
+            gridContainer.classList.remove('sixteen');
+        } 
+
+        if (size == 100) {
+            gridContainer.classList.add('one'); 
+        } else if (size == 400) {
+            gridContainer.classList.add('four'); 
+        } else if (size == 900) {
+            gridContainer.classList.add('nine'); 
+        } else if (size == 1600) {
+            gridContainer.classList.add('sixteen')
+        }
+
         gridContainer.appendChild(newDiv); 
+        
     }
+
 }
 
 
 //function to add color to boxes 
 function colorBoxes(event) {
-    if (event.target.className == 'boxes') {
+    if (event.target.classList.contains('boxes')) {
         let target = event.target; 
         target.classList.add('permaHover');
     }
