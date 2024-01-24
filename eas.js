@@ -58,7 +58,26 @@ function colorBoxes(event) {
     }
 }
 
+//Colors applied when user drags mouse 
+document.addEventListener('mousedown', event => {
+    document.addEventListener('mouseover', colorBoxes);
+})
+
+document.addEventListener('mouseup', event => {
+    document.removeEventListener('mouseover', colorBoxes);
+})
+
 //function for rainbow pen 
+const rainbowBtn = document.querySelector('.rainbow');
+rainbowBtn.addEventListener('click', event => {
+    document.addEventListener('mousedown', event => {
+        document.addEventListener('mouseover', rainbow); 
+    })
+    document.addEventListener('mouseup', event => {
+        document.removeEventListener('mouseover', rainbow);
+    })
+})
+
 function rainbow(event) {
     let color = '#';
     let letters = ['ABDEE6','CBAACB','FFFFB5','FFCCB6','F3B0C3', 
@@ -72,7 +91,7 @@ function rainbow(event) {
         let target = event.target; 
         target.classList.remove('permaHover');
         target.classList.add('rainbowHover');
-      //  target.style.background = color;
+        target.style.background = color;
     }
 }
 
@@ -82,6 +101,7 @@ function erase(event) {
     if (event.target.classList.contains('boxes')) {
         let target = event.target; 
         target.classList.remove('permaHover');
+        target.style.backgroundColor = '';
     }
 }
 
@@ -94,14 +114,6 @@ eraser.addEventListener('click', event => {
     })
 })
 
-//Colors applied when user drags mouse 
-document.addEventListener('mousedown', event => {
-    document.addEventListener('mouseover', colorBoxes);
-})
-
-document.addEventListener('mouseup', event => {
-    document.removeEventListener('mouseover', colorBoxes);
-})
 
 //reset board button
 const resetBtn = document.querySelector('.reset'); 
@@ -110,6 +122,17 @@ resetBtn.addEventListener('click', event => {
     const boxes = document.querySelectorAll('.boxes'); 
     boxes.forEach(box => {
         box.classList.remove('permaHover');
+        box.style.backgroundColor = '';
+    })
+})
+
+//default pen 
+const defaultPenBtn = document.querySelector('.black'); 
+defaultPenBtn.addEventListener('click', event => {
+    document.addEventListener('mousedown', event => {
+        document.addEventListener('mouseover', colorBoxes)});
+    document.addEventListener('mouseup', event => {
+        document.removeEventListener('mouseover', colorBoxes);
     })
 })
 
