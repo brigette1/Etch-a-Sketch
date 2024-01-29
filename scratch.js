@@ -51,26 +51,33 @@ function createBoxes(size) {
 
 const controlButton = document.querySelectorAll('.control')
 let currentMode = 'Default Pen';
+let isDrawing = false;
 
-const startDrawing = () => {
-    document.addEventListener('mouseover', event => {
-        pickMode(event, currentMode);
-    })
-}
-  
-const endDrawing = () => {
-    document.removeEventListener('mouseover', pickMode)};
-
-  
-controlButton.forEach(button => {
-    button.addEventListener('click', event => {
-        document.removeEventListener('mousedown', startDrawing);
-        document.removeEventListener('mouseup', endDrawing);
+controlButton.forEach((button) => {
+    button.addEventListener('click', (event) => {
         currentMode = button.textContent;
-        document.addEventListener('mousedown', startDrawing);
-        document.addEventListener('mouseup', endDrawing);
-    })
-})
+    });
+});
+
+function startDrawing(event) {
+    if (event.button == 0) {
+        isDrawing = true;
+        pickMode(event, currentMode);
+    }
+}
+
+function endDrawing() {
+    isDrawing = false;
+}
+
+function handleMouseMove(event) {
+    if (isDrawing) {
+        pickMode(event, currentMode);
+    }
+}
+document.addEventListener('mousedown', startDrawing);
+document.addEventListener('mouseup', endDrawing);
+document.addEventListener('mousemove', handleMouseMove);
 
 function pickMode(event, currentMode) {
     switch(currentMode) {
